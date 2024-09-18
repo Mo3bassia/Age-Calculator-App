@@ -1,0 +1,247 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+
+/* Importing Colors */
+:root {
+  --Purple: hsl(259, 100%, 65%);
+  --Light-red: hsl(0, 100%, 67%);
+  --White: hsl(0, 0%, 100%);
+  --Off-white: hsl(0, 0%, 94%);
+  --Light-grey: hsl(0, 0%, 86%);
+  --Smokey-grey: hsl(0, 1%, 44%);
+  --Off-black: hsl(0, 0%, 8%);
+}
+
+/* Importing Font Family */
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  width: 45rem;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 20px;
+  border-end-end-radius: 150px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  margin: auto;
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+body {
+  background-color: var(--Off-white);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.labels-flex label {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--Smokey-grey);
+  letter-spacing: 2px;
+}
+
+.inputs-flex,
+.smalls-flex,
+.labels-flex {
+  display: flex;
+  gap: 20px;
+}
+
+.inputs-flex input {
+  display: block;
+  outline: none;
+  border: 1px solid var(--Light-grey);
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-weight: 800;
+  font-size: 32px;
+  margin-top: 7px;
+  caret-color: var(--Purple);
+}
+
+.inputs-flex > *,
+.labels-flex > *,
+.smalls-flex > * {
+  width: 150px;
+}
+
+.inputs-flex input:focus {
+  border: 1px solid var(--Purple);
+}
+
+.inputs-flex input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.smalls-flex * {
+  color: var(--Light-red);
+  font-style: italic;
+}
+
+@media (max-width: 750px) {
+  .container {
+    width: 100%;
+  }
+  .labels-flex label,
+  .inputs-flex input,
+  .smalls-flex * {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .inputs-flex input {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .inputs-flex input {
+    font-size: 25px;
+  }
+}
+
+.hr {
+  position: relative;
+  margin-block: 50px;
+}
+
+.hr .arrow {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background-color: var(--Purple);
+  position: absolute;
+  left: 50%;
+  top: -50%;
+  transform: translateY(-50%) translateX(-50%);
+  z-index: 2;
+  cursor: pointer;
+  transition: 0.2s;
+  outline: none;
+  border: none;
+}
+
+.hr .arrow:hover {
+  background-color: #000;
+}
+
+.hr .arrow img {
+  width: 35px;
+}
+
+.hr:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  background-color: var(--Off-white);
+  width: 100%;
+  height: 2px;
+}
+
+@media (min-width: 375px) {
+  .hr .arrow {
+    right: 0;
+    transform: translateY(-50%);
+    left: unset;
+  }
+}
+
+.hr + .fix {
+  padding-bottom: 40px;
+}
+
+.result h2 {
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 900;
+}
+
+@media (min-width: 375px) {
+  .result h2 {
+    font-size: 50px;
+  }
+}
+@media (min-width: 500px) {
+  .result h2 {
+    font-size: 70px;
+  }
+}
+
+.result h2 span {
+  color: var(--Purple);
+}
+
+.labels-flex label.wrong {
+  color: var(--Light-red);
+}
+
+.inputs-flex input.wrong {
+  border: 1px solid var(--Light-red);
+  caret-color: var(--Light-red);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  z-index: 0;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
